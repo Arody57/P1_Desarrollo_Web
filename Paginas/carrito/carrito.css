@@ -1,0 +1,250 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
+p {
+  text-align: center;
+  color: #b2bec3;
+  padding-top: 0 8px;
+}
+
+.imgPanel {
+  width: 100px;
+  height: 100px;
+}
+
+.u-full-width {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.contents_prod {
+  width: 20%;
+  margin: 15px;
+  box-sizing: border-box;
+  float: left;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  padding-top: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  transition: .4s;
+  background: #f2f2f2;
+  opacity: 1;
+}
+
+.contents_prod:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translate(0px, -8px);
+}
+
+.more {
+  cursor: pointer;
+  font-size: 12px;
+  background-color: #ccf;
+}
+
+.complete {
+  display: none;
+}
+
+input.showmore {
+  display: none;
+}
+
+input.showmore~label.more span.menos {
+  display: none;
+}
+
+input.showmore:checked+.complete {
+  display: block;
+}
+
+input.showmore:checked~label.more span.mas {
+  display: none;
+}
+
+input.showmore:checked~label.more span.menos {
+  display: inline;
+}
+
+
+@media (max-width:730px) {
+  .contents_prod {
+    width: 50%;
+  }
+}
+
+
+@media (max-width:1400px) {
+
+  .contents_prod {
+    width: 45%;
+  }
+}
+
+.page {
+  display: table;
+  width: 100%
+}
+
+.container {
+  float: right;
+  width: 60%
+}
+
+aside {
+  float: left;
+  width: 40%
+}
+
+.column,
+.columns {
+  float: left;
+  box-sizing: border-box;
+}
+
+.u-pull-right {
+  float: right;
+}
+
+.u-pull-left {
+  float: left;
+}
+
+/* Creacion carrito */
+.submenu {
+  position: relative;
+}
+
+.submenu #carrito {
+  display: none;
+}
+
+.submenu:hover #carrito {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+  background-color: #E5E3E3;
+  padding: 20px;
+  min-height: 400px;
+  min-width: 300px;
+}
+
+.two.columns {
+  width: 13.3333333333%;
+}
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.justCant {
+  text-align: center !important;
+}
+
+th,
+td {
+  padding: 5px 5px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+ul {
+  list-style: circle inside;
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+ol,
+ul {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+.borrar-prod {
+  background-color: red !important;
+  border-radius: 50%;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.buttonE {
+  display: inline-block !important;
+  height: 38px !important;
+  padding: 0 30px !important;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap !important;
+  background-color: transparent !important;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}

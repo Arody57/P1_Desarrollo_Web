@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Libreria de iconos  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/fontawesome.min.css">
+
+    <!-- Libreria de estilo css  -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../carrito/carrito.css">
+</head>
+
+<body>
+    <!-- BARRA DE NAVEGACIÓN (MENU)  -->
+    <header>
+        <a href="#" class="logo"><i class="fa-solid fa-microchip"></i>Store</a>
+
+        <nav class="navbar">
+            <a href="../../index.html">Home</a>
+            <a class="active" href="../../Paginas/carrito/carrito.html">Productos</a>
+            <a href="../compra/compra.html">Compra</a>
+        </nav>
+
+        <div class="row icons two columns u-pull-right containerCarr">
+            <ul>
+                <li class="submenu" id="subMenu">
+                    <a href="#" class="fas fa-shopping-cart" id="img-carrito"></a>
+                    <div id="carrito">
+                        <table id="lista-carrito" class="u-full-width">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <span href="#" id="vaciar-carrito" class="buttonE u-full-width">Vaciar Carrito</span> <br>
+                        <span href="#" id="compra_productos" class="buttonE u-full-width">Realizar Compra</span>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </header>
+
+    <section class="home" id="Pagina_Principal">
+        <div class="swiper home-slider">
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>Productos de recién ingreso</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="products" id="products">
+        <div class="gallery" id="lista-productos">
+
+            <div class="contents_prod dragDrop" draggable="true" id="lap_1">
+                <img src="../images/products/asus_TUF_DASH.jpg" alt="" draggable="false">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h2>TUF DASH 516PE-AB73</h2>
+                <p class="text-name">
+                    <span class="summary">
+                        <p>
+                            Laptop Asus TUF 15 Ultra Slim,
+                            Gaming Laptop, 15.6 pulgadas
+                            Sistema Operativo Windows 11
+                        </p>
+                    </span>
+                    <input id="showmore_1" type="checkbox" class="showmore">
+                    <span class="complete">
+                        <p>
+                            Memoria: DDR4 de 16 GB
+                            Disco: 512 GB PCIe NVMe M.2 SSD
+                            Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)
+                            S.Operatio: Windows 10 Home
+                            Conectividad: Wifi, Bluetooth, 802.11ax
+                            Puertos: 1 Thunderbolt 3, USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2
+                            SuperSpeed
+                            USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45
+                        </p>
+                    </span>
+                    <label for="showmore_1" class="more">Leer <span class="mas">más</span> <span
+                            class="menos">menos</span>...</label>
+                </p>
+                <p>Q</p><p class="precio">1169900</p>
+                <a href="" class="btn agregar-carrito" data_id="1">Agregar al carrito</a>
+            </div>
+
+            <div class="contents_prod dragDrop" draggable="true" id="lap_2">
+                <img src="https://m.media-amazon.com/images/I/81i057rz8gS._UL1500_.jpg" draggable="false" alt="">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h2>TUF Shoes</h2>
+                <p class="text-name">
+                    <span class="summary">
+                        <p>
+                            Laptop Asus TUF 15 Ultra Slim,
+                            Gaming Laptop, 15.6 pulgadas
+                            Sistema Operativo Windows 11
+                        </p>
+                    </span>
+                    <input id="showmore_2" type="checkbox" class="showmore">
+                    <span class="complete">
+                        <p>
+                            Memoria: DDR4 de 16 GB
+                            Disco: 512 GB PCIe NVMe M.2 SSD
+                            Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)
+                            S.Operatio: Windows 10 Home
+                            Conectividad: Wifi, Bluetooth, 802.11ax
+                            Puertos: 1 Thunderbolt 3, USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2
+                            SuperSpeed
+                            USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45
+                        </p>
+                    </span>
+                    <label for="showmore_2" class="more">Leer <span class="mas">más</span> <span
+                            class="menos">menos</span>...</label>
+                </p>
+                <p>Q</p><p class="precio">1169900</p>
+                <a href="" class="btn agregar-carrito" data_id="2">Agregar al carrito</a>
+            </div>
+
+            <div class="contents_prod dragDrop" draggable="true" id="lap_3">
+                <img src="../images/products/asus_TUF_DASH.jpg" draggable="false" alt="">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h2>TUF DASH 516PE-AB73</h2>
+                <p class="text-name">
+                    <span class="summary">
+                        <p>
+                            Laptop Asus TUF 15 Ultra Slim,
+                            Gaming Laptop, 15.6 pulgadas
+                            Sistema Operativo Windows 11
+                        </p>
+                    </span>
+                    <input id="showmore_3" type="checkbox" class="showmore">
+                    <span class="complete">
+                        <p>
+                            Memoria: DDR4 de 16 GB
+                            Disco: 512 GB PCIe NVMe M.2 SSD
+                            Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)
+                            S.Operatio: Windows 10 Home
+                            Conectividad: Wifi, Bluetooth, 802.11ax
+                            Puertos: 1 Thunderbolt 3, USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2
+                            SuperSpeed
+                            USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45
+                        </p>
+                    </span>
+                    <label for="showmore_3" class="more">Leer <span class="mas">más</span> <span
+                            class="menos">menos</span>...</label>
+                </p>
+                <p>Q</p><p class="precio">1169900</p>
+                <a href="" class="btn agregar-carrito" data_id="3">Agregar al carrito</a>
+            </div>
+
+            <div class="contents_prod dragDrop" draggable="true" id="shoe_1">
+                <img src="../images/products/asus_TUF_DASH.jpg"  draggable="false"  alt="">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h2>TUF DASH 516PE-AB73</h2>
+                <p class="text-name">
+                    <span class="summary">
+                        <p>
+                            Laptop Asus TUF 15 Ultra Slim,
+                            Gaming Laptop, 15.6 pulgadas
+                            Sistema Operativo Windows 11
+                        </p>
+                    </span>
+                    <input id="showmore_4" type="checkbox" class="showmore">
+                    <span class="complete">
+                        <p>
+                            Memoria: DDR4 de 16 GB
+                            Disco: 512 GB PCIe NVMe M.2 SSD
+                            Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)
+                            S.Operatio: Windows 10 Home
+                            Conectividad: Wifi, Bluetooth, 802.11ax
+                            Puertos: 1 Thunderbolt 3, USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2
+                            SuperSpeed
+                            USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45
+                        </p>
+                    </span>
+                    <label for="showmore_4" class="more">Leer <span class="mas">más</span> <span
+                            class="menos">menos</span>...</label>
+                </p>
+                <p>Q</p><p class="precio">1169900</p>
+                <a href="" class="btn agregar-carrito" data_id="4">Agregar al carrito</a>
+            </div>
+
+            <div class="contents_prod dragDrop" draggable="true">
+                <img src="../images/products/asus_TUF_DASH.jpg" draggable="false"  alt="">
+                <a href="#" class="fas fa-heart"></a> 
+                <a href="#" class="fas fa-eye"></a>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h2>TUF DASH 516PE-AB73</h2>
+                <p class="text-name">
+                    <span class="summary">
+                        <p>
+                            Laptop Asus TUF 15 Ultra Slim,
+                            Gaming Laptop, 15.6 pulgadas
+                            Sistema Operativo Windows 11
+                        </p>
+                    </span>
+                    <input id="showmore_5" type="checkbox" class="showmore">
+                    <span class="complete">
+                        <p>
+                            Memoria: DDR4 de 16 GB
+                            Disco: 512 GB PCIe NVMe M.2 SSD
+                            Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)
+                            S.Operatio: Windows 10 Home
+                            Conectividad: Wifi, Bluetooth, 802.11ax
+                            Puertos: 1 Thunderbolt 3, USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2
+                            SuperSpeed
+                            USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45
+                        </p>
+                    </span>
+                    <label for="showmore_5" class="more">Leer <span class="mas">más</span> <span
+                            class="menos">menos</span>...</label>
+                </p>
+                <p>Q</p><p class="precio">1169900</p>
+                <a href="" class="btn agregar-carrito" data_id="5">Agregar al carrito</a>
+            </div>
+
+            <div class="contents_prod dragDrop" draggable="true">
+                <img src="../images/products/asus_TUF_DASH.jpg"   draggable="false" alt="">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h2>TUF DASH 516PE-AB73</h2>
+                <p class="text-name">
+                    <span class="summary">
+                        <p>
+                            Laptop Asus TUF 15 Ultra Slim,
+                            Gaming Laptop, 15.6 pulgadas
+                            Sistema Operativo Windows 11
+                        </p>
+                    </span>
+                    <input id="showmore_6" type="checkbox" class="showmore">
+                    <span class="complete">
+                        <p>
+                            Memoria: DDR4 de 16 GB
+                            Disco: 512 GB PCIe NVMe M.2 SSD
+                            Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)
+                            S.Operatio: Windows 10 Home
+                            Conectividad: Wifi, Bluetooth, 802.11ax
+                            Puertos: 1 Thunderbolt 3, USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2
+                            SuperSpeed
+                            USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45
+                        </p>
+                    </span>
+                    <label for="showmore_6" class="more">Leer <span class="mas">más</span> <span
+                            class="menos">menos</span>...</label>
+                </p>
+                <p>Q</p><p class="precio">1169900</p>
+                <a href="" class="btn agregar-carrito" data_id="6">Agregar al carrito</a>
+            </div>
+
+            <div class="contents_prod dragDrop" draggable="true">
+                <img src="../images/products/asus_TUF_DASH.jpg"  draggable="false"  alt="">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h2>TUF DASH 516PE-AB73</h2>
+                <p class="text-name">
+                    <span class="summary">
+                        <p>
+                            Laptop Asus TUF 15 Ultra Slim,
+                            Gaming Laptop, 15.6 pulgadas
+                            Sistema Operativo Windows 11
+                        </p>
+                    </span>
+                    <input id="showmore_7" type="checkbox" class="showmore">
+                    <span class="complete">
+                        <p>
+                            Memoria: DDR4 de 16 GB
+                            Disco: 512 GB PCIe NVMe M.2 SSD
+                            Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)
+                            S.Operatio: Windows 10 Home
+                            Conectividad: Wifi, Bluetooth, 802.11ax
+                            Puertos: 1 Thunderbolt 3, USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2
+                            SuperSpeed
+                            USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45
+                        </p>
+                    </span>
+                    <label for="showmore_7" class="more">Leer <span class="mas">más</span> <span
+                            class="menos">menos</span>...</label>
+                </p>
+                <p>Q</p><p class="precio">1169900</p>
+                <a href="" class="btn agregar-carrito" data_id="7">Agregar al carrito</a>
+            </div>
+
+            <div class="contents_prod dragDrop" draggable="true">
+                <img src="../images/products/asus_TUF_DASH.jpg" alt="">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h2>TUF DASH 516PE-AB73</h2>
+                <p class="text-name">
+                    <span class="summary">
+                        <p>
+                            Laptop Asus TUF 15 Ultra Slim,
+                            Gaming Laptop, 15.6 pulgadas
+                            Sistema Operativo Windows 11
+                        </p>
+                    </span>
+                    <input id="showmore_8" type="checkbox" class="showmore">
+                    <span class="complete">
+                        <p>
+                            Memoria: DDR4 de 16 GB
+                            Disco: 512 GB PCIe NVMe M.2 SSD
+                            Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)
+                            S.Operatio: Windows 10 Home
+                            Conectividad: Wifi, Bluetooth, 802.11ax
+                            Puertos: 1 Thunderbolt 3, USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2
+                            SuperSpeed
+                            USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45
+                        </p>
+                    </span>
+                    <label for="showmore_8" class="more">Leer <span class="mas">más</span> <span
+                            class="menos">menos</span>...</label>
+                </p>
+                <p>Q</p><p class="precio">1169900</p>
+                <a href="" class="btn agregar-carrito" data_id="8">Agregar al carrito</a>
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Ubicaciones</h3>
+                <a href="">Guatemala</a>
+                <a href="">Xela</a>
+            </div>
+
+            <div class="box">
+                <h3>Links</h3>
+                <a href="">Home</a>
+                <a href="">Productos</a>
+                <a href="">Nosotros</a>
+            </div>
+
+            <div class="box">
+                <h3>Contactos</h3>
+                <a href="">+502 4565 2453</a>
+                <a href="">+502 6889 6513</a>
+            </div>
+
+            <div class="box">
+                <h3>Siguenos</h3>
+                <a href="">Facebook</a>
+                <a href="">Instagram</a>
+            </div>
+
+        </div>
+
+        <div class="credit"> copyright @2022 by <span>Arody, Byron y Sergio</span> </div>
+
+    </section>
+
+    <!-- Libreria de script  -->
+    <script src="../carrito/carrito.js"></script>
+</body>
+
+</html>
