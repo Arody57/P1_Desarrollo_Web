@@ -50,7 +50,6 @@ function cargaEventos() {
 }
 
 function agregarProducto(e) {
-    debugger;
     e.preventDefault();
     if (e.target.classList.contains('agregar-carrito')) {
         const productoSelect = e.target.parentElement;
