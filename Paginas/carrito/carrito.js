@@ -36,7 +36,6 @@ function cargaEventos() {
     listaProductos.addEventListener('click', agregarProducto);
     //Funcion que limpia el carrito
     vaciarCarrito.addEventListener('click', () => {
-        /
         articulosCarrito = [];
         eliminarGeneralRegistros();
         limpiarHTML();
@@ -51,6 +50,7 @@ function cargaEventos() {
 }
 
 function agregarProducto(e) {
+    debugger;
     e.preventDefault();
     if (e.target.classList.contains('agregar-carrito')) {
         const productoSelect = e.target.parentElement;
