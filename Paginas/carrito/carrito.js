@@ -1,13 +1,14 @@
 //Funcion inicial al cargar el aplicativo
 window.addEventListener('load', init);
 //Eventos para drag and drop
- var db
+ 
 function init() {
 
     var elementDraggable = document.getElementsByClassName('dragDrop');
     var container = document.querySelector('.containerCarr');
 
-    db = openDatabase("DB Prueba3", "0.1", "Database Prueba3", 200000);
+
+
     container.addEventListener('dragover', dragOnContainer, false); //cuando un elemento este sobre el
     container.addEventListener('drop', fnDrop, false) //Se dispara se suuelta el elemento
     for (const key in elementDraggable) {
@@ -35,7 +36,7 @@ function cargaEventos() {
     listaProductos.addEventListener('click', agregarProducto);
     //Funcion que limpia el carrito
     vaciarCarrito.addEventListener('click', () => {
-        debugger;
+        /
 		articulosCarrito = [];
         eliminarGeneralRegistros();
 		limpiarHTML();
@@ -92,7 +93,6 @@ function leerProd(prod) {
  */
 
 function eliminarProducto(e){
-    debugger;
     if(e.target.classList.contains('borrar-prod')){
         const prodID = e.target.getAttribute('data-id');
 
@@ -179,6 +179,16 @@ function limpiarHTML() {
     }
 }
 
+var db;
+    db = openDatabase("DB Prueba3", "0.1", "Database Prueba3", 200000);
+
+    if (db) {
+        // Database opened
+        db.transaction( function(tx) {
+            tx.executeSql("CREATE TABLE IF NOT EXISTS productos(prodid integer primary key, image text , name text, amount int,price int)")
+        });
+    }
+
 function addUser(prodrid,image,name,amount,price) 
 {
     let cantidad=parseInt(amount), precio=parseInt(price), id = parseInt(prodrid);
@@ -186,15 +196,14 @@ function addUser(prodrid,image,name,amount,price)
                 tx.executeSql("INSERT INTO productos(prodid,image, name ,amount,price) VALUES(?,?,?,?,?)", [id,image, name ,cantidad, precio]);
             });
             
-    // db.transaction( function(tx) 
-    // {
-    //     tx.executeSql("INSERT INTO productos(prodrid,image, name ,amount,price) VALUES(?,?,?,?,?)", [prodrid,image, name ,amount,price]);
-    // });
+    db.transaction( function(tx) 
+    {
+        tx.executeSql("INSERT INTO productos(prodrid,image, name ,amount,price) VALUES(?,?,?,?,?)", [prodrid,image, name ,amount,price]);
+    });
 }
 
 
 function finalizarCompra(productos){
-    debugger;
     if(productos.length > 0){
         for( let i = 0; i < productos.length; i++){
             addUser(productos[i].id, productos[i].img, productos[i].titulo, productos[i].cantidad, productos[i].precio)
@@ -208,7 +217,6 @@ function finalizarCompra(productos){
  * elimina tabla
  */
 function eliminarGeneralRegistros(){
-    debugger;
     db.transaction( function(tx) {
         tx.executeSql('delete from productos');
     });
@@ -219,9 +227,7 @@ function eliminarGeneralRegistros(){
 
 
 async function eliminaUnRegistro(id){
-    debugger;
     let exists = await consultaProducto(id);
-    debugger;
     if(exists){
         await deleteProduct();
     }
