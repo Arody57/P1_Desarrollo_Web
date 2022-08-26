@@ -57,6 +57,7 @@
                 </thead>
                 <tbody> </tbody>
             </table>
+            <a href="#" class="btn" onclick="alerta()">Comprar productos</a>
         </div>
     </div>
     <script>
@@ -282,7 +283,29 @@
                 });
             });
         }
+        function alerta() {
 
+            var opcion = confirm("Desea confirmar la compra");
+            if (opcion == true) {
+                alert("La compra se ha realizado con exito, total: " + total + " Cantidad articulos: " + unidad);
+                eliminarGeneralRegistros();
+                /*Rediccionarlo a la pagina principal*/
+                window.location.href ="../carrito/carrito.html";
+                
+            } else {
+
+                alert("La compra se ha cancelado");
+
+            }
+
+        }
+
+
+        function eliminarGeneralRegistros() {
+            db.transaction(function (tx) {
+                tx.executeSql('delete from productos');
+            });
+        }
 
     </script>
 

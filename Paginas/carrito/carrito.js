@@ -224,8 +224,6 @@ function eliminarGeneralRegistros(){
 /**
  * Elimina el registro seleccionado en bd
  */
-
-
 async function eliminaUnRegistro(id){
     let exists = await consultaProducto(id);
     if(exists){
