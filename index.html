@@ -28,8 +28,8 @@
 
         <nav class="navbar">
             <a class="active" href="#Pagina_Principal">Home</a>
-            <a href="/Paginas/carrito/carrito.html">Productos</a>
-            <a href="/Paginas/compra/compra.html">Compra</a>
+            <a href="Paginas/carrito/carrito.html">Productos</a>
+            <a href="Paginas/compra/compra.html">Compra</a>
         </nav>
 
         <div class="icons">
@@ -49,45 +49,53 @@
                     <div class="content">
                         <span>Nuestros Productos Especiales</span>
                         <h3>Logitech</h3>
+                        <div class="image">
+                            <img src="images/tablets.webp" alt="">
+                        </div>
                         <p>Mejora tu experiencia Logi Options+ es la aplicación de próxima generación eficaz y fácil de
                             usar con la que puedes personalizar mouse y teclados Logitech para trabajar como quieras.
                         </p>
                         <a href="#" class="btn">Ordenar Ya!</a>
                     </div>
-                    <div class="image">
-                        <img src="images/tablets.webp" alt="">
-                    </div>
+
                 </div>
                 <!-- SLIDER #2   -->
                 <div class="swiper-slide slide">
                     <div class="content">
                         <span>Nuestros Productos Especiales</span>
                         <h3>AMD</h3>
+                        <div class="image">
+                            <img src="images/amd.webp" alt="">
+                        </div>
                         <p>¿Qué tiene en común su próxima PC con las consolas de juegos populares y los sistemas que
                             representan proyectos en tiempo real para películas taquilleras? La increíble potencia y
                             rendimiento de la tecnología AMD.</p>
                         <a href="#" class="btn">Ordenar Ya!</a>
                     </div>
-                    <div class="image">
-                        <img src="images/amd.webp" alt="">
-                    </div>
+
                 </div>
                 <!-- SLIDER #3   -->
                 <div class="swiper-slide slide">
                     <div class="content">
                         <span>Nuestros Productos Especiales</span>
                         <h3>Microsoft Office 365</h3>
+                        <div class="image">
+                            <img src="images/microsoft_365.webp" alt="">
+                        </div>
                         <p>Haz la vida más creativa, organizada y segura. Instale las aplicaciones de Office en sus
                             dispositivos favoritos, incluidos Windows, macOS, iOS y Android.</p>
                         <a href="#" class="btn">Ordenar Ya!</a>
                     </div>
-                    <div class="image">
-                        <img src="images/microsoft_365.webp" alt="">
-                    </div>
+
                 </div>
             </div>
 
-            <div class="swiper-pagination"></div>
+            <div onload="showSlides()" style="text-align:center">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
         </div>
     </section>
 
@@ -110,15 +118,21 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <p> Procesador: Intel Core i7-11370H (caché de 12M, hasta 4.8 GHz)</p>
-                <p> Graficos: NVIDIA GeForce RTX 3050 4GB GDDR6 hasta 1585MHz a 60W</p>
-                <p> Memoria: DDR4 de 16 GB</p>
-                <p> Disco: 512 GB PCIe NVMe M.2 SSD </p>
-                <p> Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)</p>
-                <p> S.Operatio: Windows 10 Home</p>
-                <p> Conectividad: ‎Wifi, Bluetooth, 802.11ax</p>
-                <p> Puertos: 1 Thunderbolt 3, ​​USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2 SuperSpeed
-                    ​​USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45</p>
+                <p> Procesador: Intel Core i7-11370H (caché de 12M, hasta 4.8 GHz)
+                    <a href="#products" onclick="vermas('mas_product1');" id="mas_product1">... [leer más]</a>
+                </p>
+                <div id="desplegar1" style="display: none;">
+                    <p> Graficos: NVIDIA GeForce RTX 3050 4GB GDDR6 hasta 1585MHz a 60W</p>
+                    <p> Memoria: DDR4 de 16 GB</p>
+                    <p> Disco: 512 GB PCIe NVMe M.2 SSD </p>
+                    <p> Pantalla: Full HD tipo IPS de 15.6 pulgadas, 144 Hz (1920 x 1080)</p>
+                    <p> S.Operatio: Windows 10 Home</p>
+                    <p> Conectividad: ‎Wifi, Bluetooth, 802.11ax</p>
+                    <p> Puertos: 1 Thunderbolt 3, ​​USB Type-C de 10 Gbps, DisplayPort 1.4, USB Type-A 5Gbps, 2
+                        SuperSpeed ​​USB Tipo-A, 1 Mini DisplayPort; 1 HDMI 2.0a; 1 RJ-45 <br>
+                        <a href="#products" onclick="vermas('menos_product1');" id="menos_product1">... [leer menos]</a>
+                    </p>
+                </div>
                 <span>Q11,699.00</span>
                 <a href="" class="btn">Agregar al carrito</a>
             </div>
@@ -136,11 +150,17 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <p>DXRacer ha desarrollado Prince P132 con el objetivo de traspasar los límites entre el mantenimiento
-                    de los componentes y la sensación de una silla de juego premium. El acolchado de espuma fría de alta
-                    calidad que rodea el marco de acero sostenible, cubierto con piel sintética genuina, está construido
-                    ergonómicamente para ayudar a largas sesiones de juego frente a la PC.
+                <p>DXRacer ha desarrollado Prince P132 con el objetivo de traspasar los límites
+                    <a href="#products" onclick="vermas('mas_product2');" id="mas_product2">... [leer más]</a>
                 </p>
+                <div id="desplegar2" style="display: none;">
+                    <p>entre el mantenimiento de los componentes y la sensación de una silla de juego premium.
+                        El acolchado de espuma fría de alta calidad que rodea el marco de acero sostenible,
+                        cubierto con piel sintética genuina, está construido ergonómicamente para ayudar a largas
+                        sesiones de juego frente a la PC.
+                        <a href="#products" onclick="vermas('menos_product2');" id="menos_product2">... [leer menos]</a>
+                    </p>
+                </div>
                 <span>Q2,099.00</span>
                 <a href="" class="btn">Agregar al carrito</a>
             </div>
@@ -158,19 +178,21 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <p> Procesador: Intel Core i7-10870H </p>
-                <p> Graficos: GeForce RTX 3070 8GB GDDR6 </p>
-                <p> Memoria: 16GB DDR4 2933MHz </p>
-                <p> Disco: 512 GB PCIe M.2 SSD </p>
-                <details>
-                    <summary style="cursor:pointer; font-size: 1.7rem;">Leer mas..</summary>
-
+                <p> Procesador: Intel Core i7-10870H
+                    <a href="#products" onclick="vermas('mas_product3');" id="mas_product3">... [leer más]</a>
+                </p>
+                <div id="desplegar3" style="display: none;">
+                    <p> Graficos: GeForce RTX 3070 8GB GDDR6 </p>
+                    <p> Memoria: 16GB DDR4 2933MHz </p>
+                    <p> Disco: 512 GB PCIe M.2 SSD </p>
                     <p> Pantalla: 15.6" FHD 300Hz 3ms 1920 x 1080</p>
                     <p> S.Operativo: Windows 10 Home</p>
                     <p> Conectividad: Wi-Fi 6, Bluetooth </p>
-                    <p> Puertos: DisplayPort, HDMI, USB-C, USB 3.2</p>
+                    <p> Puertos: DisplayPort, HDMI, USB-C, USB 3.2
+                        <a href="#products" onclick="vermas('menos_product3');" id="menos_product3">... [leer menos]</a>
+                    </p>
 
-                </details>
+                </div>
                 <span>Q18,199.00</span>
                 <a href="" class="btn">Agregar al carrito</a>
             </div>

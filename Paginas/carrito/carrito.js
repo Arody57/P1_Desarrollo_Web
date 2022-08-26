@@ -1,7 +1,7 @@
 //Funcion inicial al cargar el aplicativo
 window.addEventListener('load', init);
 //Eventos para drag and drop
- 
+
 function init() {
 
     var elementDraggable = document.getElementsByClassName('dragDrop');
@@ -37,15 +37,15 @@ function cargaEventos() {
     //Funcion que limpia el carrito
     vaciarCarrito.addEventListener('click', () => {
         /
-		articulosCarrito = [];
+        articulosCarrito = [];
         eliminarGeneralRegistros();
-		limpiarHTML();
-	});
+        limpiarHTML();
+    });
     //Funcion que elimina el producto seleccionado
-    contenedorProductos.addEventListener('click', eliminarProducto);    
+    contenedorProductos.addEventListener('click', eliminarProducto);
 
     //Funcion que graba en BD Online
-    realizaCompra.addEventListener('click', ()=>{
+    realizaCompra.addEventListener('click', () => {
         finalizarCompra(articulosCarrito);
     });
 }
@@ -92,12 +92,12 @@ function leerProd(prod) {
  * @param {e} producto seleccionado
  */
 
-function eliminarProducto(e){
-    if(e.target.classList.contains('borrar-prod')){
+function eliminarProducto(e) {
+    if (e.target.classList.contains('borrar-prod')) {
         const prodID = e.target.getAttribute('data-id');
 
         //Filtrando por todos los elementos distintos al que se eliminará
-		articulosCarrito = articulosCarrito.filter((prod) => prod.id !== prodID);
+        articulosCarrito = articulosCarrito.filter((prod) => prod.id !== prodID);
         eliminaUnRegistro(prodID);
         carritoHTML();
     }
@@ -166,7 +166,7 @@ function dragOnContainer(e) {
 function fnDrop(e) {
     let id = e.dataTransfer.getData('text'),
         el = document.getElementById(id);
-        leerProd(el);
+    leerProd(el);
 
     e.preventDefault();
 
@@ -180,72 +180,70 @@ function limpiarHTML() {
 }
 
 var db;
-    db = openDatabase("DB Prueba3", "0.1", "Database Prueba3", 200000);
+db = openDatabase("DB Prueba3", "0.1", "Database Prueba3", 200000);
 
-    if (db) {
-        // Database opened
-        db.transaction( function(tx) {
-            tx.executeSql("CREATE TABLE IF NOT EXISTS productos(prodid integer primary key, image text , name text, amount int,price int)")
-        });
-    }
+if (db) {
+    // Database opened
+    db.transaction(function (tx) {
+        tx.executeSql("CREATE TABLE IF NOT EXISTS productos(prodid integer primary key, image text , name text, amount int,price int)")
+    });
+}
 
-function addUser(prodrid,image,name,amount,price) 
-{
-    let cantidad=parseInt(amount), precio=parseInt(price), id = parseInt(prodrid);
-            db.transaction( function(tx){
-                tx.executeSql("INSERT INTO productos(prodid,image, name ,amount,price) VALUES(?,?,?,?,?)", [id,image, name ,cantidad, precio]);
-            });
-            
-    db.transaction( function(tx) 
-    {
-        tx.executeSql("INSERT INTO productos(prodrid,image, name ,amount,price) VALUES(?,?,?,?,?)", [prodrid,image, name ,amount,price]);
+function addUser(prodrid, image, name, amount, price) {
+    let cantidad = parseInt(amount), precio = parseInt(price), id = parseInt(prodrid);
+    db.transaction(function (tx) {
+        tx.executeSql("INSERT INTO productos(prodid,image, name ,amount,price) VALUES(?,?,?,?,?)", [id, image, name, cantidad, precio]);
+    });
+
+    db.transaction(function (tx) {
+        tx.executeSql("INSERT INTO productos(prodrid,image, name ,amount,price) VALUES(?,?,?,?,?)", [prodrid, image, name, amount, price]);
     });
 }
 
 
-function finalizarCompra(productos){
-    if(productos.length > 0){
-        for( let i = 0; i < productos.length; i++){
+function finalizarCompra(productos) {
+    if (productos.length > 0) {
+        for (let i = 0; i < productos.length; i++) {
             addUser(productos[i].id, productos[i].img, productos[i].titulo, productos[i].cantidad, productos[i].precio)
         }
     }
-    window.location.href ="../compra/compra.html";
+    window.location.href = "../compra/compra.html";
 }
 
 
 /**
  * elimina tabla
  */
-function eliminarGeneralRegistros(){
-    db.transaction( function(tx) {
+function eliminarGeneralRegistros() {
+    db.transaction(function (tx) {
         tx.executeSql('delete from productos');
     });
 }
 /**
  * Elimina el registro seleccionado en bd
  */
-async function eliminaUnRegistro(id){
+async function eliminaUnRegistro(id) {
     let exists = await consultaProducto(id);
-    if(exists){
+    if (exists) {
         await deleteProduct();
     }
 }
-function deleteProduct(id){
-    db.transaction(function(tx){
-        tx.executeSql('delete from productos where prodid=?',[id])
+function deleteProduct(id) {
+    db.transaction(function (tx) {
+        tx.executeSql('delete from productos where prodid=?', [id])
         console.log('Eliminado');
     })
 }
 
-function consultaProducto(id){
+function consultaProducto(id) {
     let flag = false;
-    db.transaction( function(tx) {
+    db.transaction(function (tx) {
         tx.executeSql('select * from productos where prodid=?', [id],
-        function(tx, result){
-            if(result.rows.length > 0){
-                return flag = true;
-            }
-        });
+            function (tx, result) {
+                if (result.rows.length > 0) {
+                    return flag = true;
+                }
+            });
     });
     return flag;
 }
