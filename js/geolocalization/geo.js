@@ -2855,8 +2855,7 @@ function getCountry() {
         }
     };
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    debugger;
-
+    
     if (timezone === "" || !timezone) {
         return null;
     }
