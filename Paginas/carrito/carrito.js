@@ -247,3 +247,16 @@ function consultaProducto(id) {
     return flag;
 }
 
+/**
+ * Geolocalizacion
+ */
+
+
+ navigator.geolocation.getCurrentPosition(showPosition);
+
+ function showPosition(position)
+ {
+   latitud=position.coords.latitude;
+   longitud=position.coords.longitude;
+   document.getElementById("user").innerHTML+="<p>Latitud: "+latitud+"</p> <p>Longitud: "+longitud+"</p>";
+ }
