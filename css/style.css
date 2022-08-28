@@ -113,16 +113,16 @@ header .navbar a:hover {
 /* ESTILO MENU ICONOS*/
 header .icons i,
 header .icons a {
-    cursor: pointer;
-    margin-left: .5rem;
-    height: 4.5rem;
-    line-height: 4.5rem;
-    width: 4.5rem;
-    text-align: center;
-    font-size: 1.7rem;
-    color: var(--black);
-    border-radius: 50%;
-    background: #eee;
+    cursor: pointer !important;
+    margin-left: .5rem !important; 
+    height: 4.5rem !important;
+    line-height: 4.5rem !important;
+    width: 4.5rem !important;
+    text-align: center !important;
+    font-size: 1.7rem !important;
+    color: var(--black) !important;
+    border-radius: 50% !important;
+    background: #eee !important;
 }
 
 header .icons i:hover,

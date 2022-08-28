@@ -99,17 +99,16 @@ input.showmore:checked~label.more span.menos {
 }
 
 
-@media (max-width:730px) {
-  .contents_prod {
-    width: 50%;
-  }
-}
-
-
 @media (max-width:1400px) {
 
   .contents_prod {
     width: 45%;
+  }
+}
+
+@media (max-width:730px) {
+  .contents_prod {
+    width: 90%;
   }
 }
 
@@ -150,7 +149,9 @@ aside {
 .submenu #carrito {
   display: none;
 }
-
+.agregar-carrito{
+  margin-bottom: 14px;
+}
 
 .submenu:hover #carrito {
   display: block;
