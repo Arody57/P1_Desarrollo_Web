@@ -10,15 +10,6 @@ menu.onclick = () => {
     navbar.classList.toggle('active');
 }
 
-let btnShop = document.querySelector("#btnCar");
-let divCar =  document.querySelector("#carrito");
-
-btnShop.onclick = () => {
-    btnShop.classList.toggle('fa-times');
-    
-    divCar.style.display == 'none' ? divCar. style.display = 'inline-block' : divCar.style.display = 'none';
-}
-
 
 function init() {
 
