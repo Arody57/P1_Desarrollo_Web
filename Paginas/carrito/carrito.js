@@ -2,6 +2,24 @@
 window.addEventListener('load', init);
 //Eventos para drag and drop
 
+let menu = document.querySelector("#menu-bars");
+let navbar = document.querySelector(".navbar");
+
+menu.onclick = () => {
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+}
+
+let btnShop = document.querySelector("#btnCar");
+let divCar =  document.querySelector("#carrito");
+
+btnShop.onclick = () => {
+    btnShop.classList.toggle('fa-times');
+    
+    divCar.style.display == 'none' ? divCar. style.display = 'inline-block' : divCar.style.display = 'none';
+}
+
+
 function init() {
 
     var elementDraggable = document.getElementsByClassName('dragDrop');

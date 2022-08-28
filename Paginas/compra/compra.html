@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    
     <!-- Libreria de iconos  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/brands.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/fontawesome.min.css">
 
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Compras</title>
-    <link rel="stylesheet" type="text/css" href="/Paginas/compra/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- Libreria de estilo css  -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-
 <body onload="init()">
-
     <!-- BARRA DE NAVEGACIÓN (MENU)  -->
     <header>
         <a href="#" class="logo"><i class="fa-solid fa-microchip"></i>Store</a>
 
         <nav class="navbar">
             <a href="../../index.html">Home</a>
-            <a href="../carrito/carrito.html">Productos</a>
-            <a href="#about" class="active">Compra</a>
+            <a href="../../Paginas/carrito/carrito.html">Productos</a>
+            <a class="active" href="../compra/compra.html">Compra</a>
         </nav>
 
-        <div class="icons">
-            <a class="fa-solid fa-bars" id="menu-bars"></a>
-            <a href="#" class="fas fa-shopping-cart"></a>
+        <div class="row icons two columns u-pull-right containerCarr">
+            <ul>
+                <li class="submenu" id="subMenu" style="list-style:none">
+                    <div class="icons">
+                        <i class="fa-solid fa-bars" id="menu-bars"></i>
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                    </div>
+                </li>
+            </ul>
+
         </div>
     </header>
-
 
     <div class="my-order-content">
         <div class="order">
@@ -47,273 +49,280 @@
             </p>
             <p id="total"> total </p>
         </div>
-
-
-        <div class="table-wrapper">
-            <table id="listado" class="fl-table">
-                <thead>
-                    <th>Cod.</th>
-                    <th>Imagen</th>
-                    <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Sub Total</th>
-                    <th>Eliminar</th>
-                </thead>
-                <tbody> </tbody>
-            </table>
-            <a href="#" class="btn" onclick="alerta()">Comprar productos</a>
-        </div>
     </div>
-    <script>
-        /*Contador*/
-
-        //Variables
-        let articulosCarrito = [];
-        const contenedorCarrito = document.querySelector('#listado tbody');
-        var db, cantidad, total, unidad;
-        const fecha = new Date();
-
-        document.getElementById("fecha").innerHTML = fecha.toLocaleDateString();
-        db = openDatabase("DB Prueba3", "0.1", "Database Prueba3", 200000);
-
-        function init() {
-            if (db) {
-                // Database opened
-                db.transaction(function (tx) {
-                    tx.executeSql("CREATE TABLE IF NOT EXISTS productos(prodid integer primary key, image text , name text, amount int ,price int)")
-                });
-            }
-
-            listUsers();
-
-
-        }
-
-        function update(amount, id) {
-            // Update
-            db.transaction(function (tx) {
-                tx.executeSql('update productos set amount=? where prodid=?', [amount, id]);
-
-            });
-        }
-
-
-        function showUsers2(users) {
-
-            unidad = 0, cantidad = 0, total = 0;
-
-            for (var i = 0; i < users.length; i++) {
-                const tr = document.createElement("tr");
-                const tdprodrid = document.createElement("td");
-                let txt1 = document.createTextNode(users[i][0]);
-                tdprodrid.appendChild(txt1);
-                tdprodrid.className = "prodrid";
-
-                const tdimage = document.createElement("td");
-                let txt2 = document.createElement("img");
-                txt2.src = users[i][1];
-                tdimage.appendChild(txt2);
-
-                const tdname = document.createElement("td");
-                let txt3 = document.createTextNode(users[i][2]);
-                tdname.appendChild(txt3);
-                tdname.className = "name";
-
-                const tdamount = document.createElement("td");
-                const di = document.createElement("div");
-                const sp = document.createElement("span");
-                const sp1 = document.createElement("span");
-                const sp2 = document.createElement("span");
-
-                tdamount.appendChild(di);
-                tdamount.className = "amount";
-                di.appendChild(sp);
-                di.appendChild(sp1);
-                di.appendChild(sp2);
-
-                di.className = "btn-mas";
-
-                let menos = document.createTextNode("-");
-                sp.appendChild(menos);
-
-
-                let numero = document.createTextNode(users[i][3]);
-                sp1.appendChild(numero);
-                sp1.className = "numero " + users[i][0];
-
-                let mas = document.createTextNode("+");
-                sp2.appendChild(mas);
-
-                unidad = users[i][3] + unidad;
-
-                const tdprice = document.createElement("td");
-                let txt5 = document.createTextNode(users[i][4]);
-                tdprice.appendChild(txt5);
-                tdprice.className = "price";
-
-
-                cantidad = users[i][4] * users[i][3];
-                const tdtotal = document.createElement("td");
-                let txt6 = document.createTextNode(cantidad);
-                tdtotal.appendChild(txt6);
-                tdtotal.className = users[i][0] + "total";
-                total = cantidad + total;
-
-                const tdRemove = document.createElement("td");
-                const buttonRemove = document.createElement("button");
-                // buttonRemove.src="garbage.png";
-
-
-                buttonRemove.textContent = 'Remove';
-                buttonRemove.onclick = eliminarFila;
-                tdRemove.appendChild(buttonRemove);
-
-
-                tr.appendChild(tdprodrid);
-                tr.appendChild(tdimage);
-                tr.appendChild(tdname);
-                tr.appendChild(tdamount);
-                tr.appendChild(tdprice);
-                tr.appendChild(tdtotal);
-                tr.appendChild(tdRemove);
-
-                const tbody = document.getElementById("listado").querySelector("tbody").appendChild(tr);
-
-                document.getElementById("listado").classList.remove("hide");
-            }
-
-            document.getElementById("cantidad").innerHTML = "Cantidad de articulos " + unidad;
-            document.getElementById("total").innerHTML = "Total " + total;
-
-            add();
-        }
-        function calculos(Ncant, Ntotal) {
-            document.getElementById("cantidad").innerHTML = "Cantidad de articulos " + Ncant;
-            document.getElementById("total").innerHTML = "Total " + Ntotal;
-        }
-
-
-        function eliminarFila(e) {
-
-            const tr = this.closest("tr")
-            const id = tr.querySelector(".prodrid").innerText;
-            //const id=tr.querySelector(".prodrid");
-            removeUser(id);/*Elimando de Base de datos*/
-            let dev = articulosCarrito.filter((prod) => prod.id !== id);
-            // Si no hay ningun elemento en la lista, escondemos la tabla
-            if (document.getElementById("listado").querySelector("tbody").querySelectorAll("tr").length == 0) {
-                document.getElementById("listado").classList.add("hide");
-            }
-            //showUsers2(dev);
-            limpiarHTML();
-        }
-
-        function actualizar(a) {
-            const id = tr.querySelector(".prodrid").innerText;
-        }
-
-        function listUsers() {
-            articulosCarrito = [];
-            db.transaction(function (tx) {
-                tx.executeSql("SELECT * FROM productos", [],
-                    function (tx, result) {
-                        for (var i = 0; i < result.rows.length; i++) {
-                            articulosCarrito.push([result.rows.item(i)['prodid'],
-                            result.rows.item(i)['image'],
-                            result.rows.item(i)['name'],
-                            result.rows.item(i)['amount'],
-                            result.rows.item(i)['price']]);
-                        }
-                        showUsers2(articulosCarrito);
-
-                    });
-            });
-        }
-
-
-        function listProduct() {
-            articulosCarrito = [];
-            db.transaction(function (tx) {
-                tx.executeSql("SELECT * FROM productos", [],
-                    function (tx, result) {
-                        for (var i = 0; i < result.rows.length; i++) {
-                            articulosCarrito.push([result.rows.item(i)['prodid'],
-                            result.rows.item(i)['image'],
-                            result.rows.item(i)['name'],
-                            result.rows.item(i)['amount'],
-                            result.rows.item(i)['price']]);
-                        }
-                    });
-            });
-        }
-
-        function addUser(prodrid, image, name, amount, price) {
-            db.transaction(function (tx) {
-                tx.executeSql("INSERT INTO productos(prodid,image, name ,amount,price) VALUES(?,?,?,?,?)", [prodrid, image, name, amount, price]);
-            });
-            listUsers();
-        }
-
-        function removeUser(prodrid) {
-            db.transaction(function (tx) {
-                tx.executeSql("DELETE FROM productos WHERE prodid=?", [prodrid], listUsers);
-            })
-        }
-
-        function limpiarHTML() {
-            while (contenedorCarrito.firstChild) {
-                contenedorCarrito.removeChild(contenedorCarrito.firstChild);
-            }
-        }
-
-        function add() {
-            document.querySelectorAll(".btn-mas>span:first-child, .btn-mas>span:last-child").forEach(span => {
-                span.addEventListener("click", function (el) {
-                    const element = this.parentElement.querySelector(".numero");
-                    let id = element.classList[1];
-
-                    let num = element.innerText;
-                    if (this.innerText == "+") {
-                        num++;
-                    } else {
-                        num--;
-                    }
-                    element.innerText = num;
-
-                    update(num, id);
-                    limpiarHTML();
-                    init();
-
-                });
-            });
-        }
-        function alerta() {
-
-            var opcion = confirm("Desea confirmar la compra");
-            if (opcion == true) {
-                alert("La compra se ha realizado con exito, total: " + total + " Cantidad articulos: " + unidad);
-                eliminarGeneralRegistros();
-                /*Rediccionarlo a la pagina principal*/
-                window.location.href = "../carrito/carrito.html";
-
-            } else {
-
-                alert("La compra se ha cancelado");
-
-            }
-
-        }
-
-
-        function eliminarGeneralRegistros() {
-            db.transaction(function (tx) {
-                tx.executeSql('delete from productos');
-            });
-        }
-
-    </script>
-
+    <div class="table-wrapper">
+        <table id="listado" class="fl-table">
+            <thead>
+                <th>Cod.</th>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Sub Total</th>
+                <th>Eliminar</th>
+            </thead>
+            <tbody id="tbody"> </tbody>
+        </table>
+        <a href="#" class="btn" onclick="alerta()">Comprar productos</a>
+    </div>
 </body>
+
+<script>
+    /*Contador*/
+
+    //Variables
+    let articulosCarrito = [];
+    const contenedorCarrito = document.querySelector('#listado tbody');
+    var db, cantidad, total, unidad;
+    const fecha = new Date();
+
+    document.getElementById("fecha").innerHTML = fecha.toLocaleDateString();
+    db = openDatabase("DB Prueba3", "0.1", "Database Prueba3", 200000);
+
+    let menu = document.querySelector("#menu-bars");
+    let navbar = document.querySelector(".navbar");
+
+    menu.onclick = () => {
+        menu.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+    }
+
+    function init() {
+        if (db) {
+            // Database opened
+            db.transaction(function (tx) {
+                tx.executeSql("CREATE TABLE IF NOT EXISTS productos(prodid integer primary key, image text , name text, amount int ,price int)")
+            });
+        }
+
+        listUsers();
+
+
+    }
+
+    function update(amount, id) {
+        // Update
+        db.transaction(function (tx) {
+            tx.executeSql('update productos set amount=? where prodid=?', [amount, id]);
+
+        });
+    }
+
+
+    function showUsers2(users) {
+
+        unidad = 0, cantidad = 0, total = 0;
+
+        for (var i = 0; i < users.length; i++) {
+            const tr = document.createElement("tr");
+            const tdprodrid = document.createElement("td");
+            let txt1 = document.createTextNode(users[i][0]);
+            tdprodrid.appendChild(txt1);
+            tdprodrid.className = "prodrid";
+
+            const tdimage = document.createElement("td");
+            let txt2 = document.createElement("img");
+            txt2.src = users[i][1];
+            tdimage.appendChild(txt2);
+
+            const tdname = document.createElement("td");
+            let txt3 = document.createTextNode(users[i][2]);
+            tdname.appendChild(txt3);
+            tdname.className = "name";
+
+            const tdamount = document.createElement("td");
+            const di = document.createElement("div");
+            const sp = document.createElement("span");
+            const sp1 = document.createElement("span");
+            const sp2 = document.createElement("span");
+
+            tdamount.appendChild(di);
+            tdamount.className = "amount";
+            di.appendChild(sp);
+            di.appendChild(sp1);
+            di.appendChild(sp2);
+
+            di.className = "btn-mas";
+
+            let menos = document.createTextNode("-");
+            sp.appendChild(menos);
+
+
+            let numero = document.createTextNode(users[i][3]);
+            sp1.appendChild(numero);
+            sp1.className = "numero " + users[i][0];
+
+            let mas = document.createTextNode("+");
+            sp2.appendChild(mas);
+
+            unidad = users[i][3] + unidad;
+
+            const tdprice = document.createElement("td");
+            let txt5 = document.createTextNode(users[i][4]);
+            tdprice.appendChild(txt5);
+            tdprice.className = "price";
+
+
+            cantidad = users[i][4] * users[i][3];
+            const tdtotal = document.createElement("td");
+            let txt6 = document.createTextNode(cantidad);
+            tdtotal.appendChild(txt6);
+            tdtotal.className = users[i][0] + "total";
+            total = cantidad + total;
+
+            const tdRemove = document.createElement("td");
+            const buttonRemove = document.createElement("button");
+            // buttonRemove.src="garbage.png";
+
+
+            buttonRemove.textContent = 'Remove';
+            buttonRemove.onclick = eliminarFila;
+            tdRemove.appendChild(buttonRemove);
+
+
+            tr.appendChild(tdprodrid);
+            tr.appendChild(tdimage);
+            tr.appendChild(tdname);
+            tr.appendChild(tdamount);
+            tr.appendChild(tdprice);
+            tr.appendChild(tdtotal);
+            tr.appendChild(tdRemove);
+
+            const tbody = document.getElementById("listado").querySelector("tbody").appendChild(tr);
+
+            document.getElementById("listado").classList.remove("hide");
+        }
+
+        document.getElementById("cantidad").innerHTML = "Cantidad de articulos " + unidad;
+        document.getElementById("total").innerHTML = "Total " + total;
+
+        add();
+    }
+    function calculos(Ncant, Ntotal) {
+        document.getElementById("cantidad").innerHTML = "Cantidad de articulos " + Ncant;
+        document.getElementById("total").innerHTML = "Total " + Ntotal;
+    }
+
+
+    function eliminarFila(e) {
+
+        const tr = this.closest("tr")
+        const id = tr.querySelector(".prodrid").innerText;
+        //const id=tr.querySelector(".prodrid");
+        removeUser(id);/*Elimando de Base de datos*/
+        let dev = articulosCarrito.filter((prod) => prod.id !== id);
+        // Si no hay ningun elemento en la lista, escondemos la tabla
+        if (document.getElementById("listado").querySelector("tbody").querySelectorAll("tr").length == 0) {
+            document.getElementById("listado").classList.add("hide");
+        }
+        //showUsers2(dev);
+        limpiarHTML();
+    }
+
+    function actualizar(a) {
+        const id = tr.querySelector(".prodrid").innerText;
+    }
+
+    function listUsers() {
+        articulosCarrito = [];
+        db.transaction(function (tx) {
+            tx.executeSql("SELECT * FROM productos", [],
+                function (tx, result) {
+                    for (var i = 0; i < result.rows.length; i++) {
+                        articulosCarrito.push([result.rows.item(i)['prodid'],
+                        result.rows.item(i)['image'],
+                        result.rows.item(i)['name'],
+                        result.rows.item(i)['amount'],
+                        result.rows.item(i)['price']]);
+                    }
+                    showUsers2(articulosCarrito);
+
+                });
+        });
+    }
+
+
+    function listProduct() {
+        articulosCarrito = [];
+        db.transaction(function (tx) {
+            tx.executeSql("SELECT * FROM productos", [],
+                function (tx, result) {
+                    for (var i = 0; i < result.rows.length; i++) {
+                        articulosCarrito.push([result.rows.item(i)['prodid'],
+                        result.rows.item(i)['image'],
+                        result.rows.item(i)['name'],
+                        result.rows.item(i)['amount'],
+                        result.rows.item(i)['price']]);
+                    }
+                });
+        });
+    }
+
+    function addUser(prodrid, image, name, amount, price) {
+        db.transaction(function (tx) {
+            tx.executeSql("INSERT INTO productos(prodid,image, name ,amount,price) VALUES(?,?,?,?,?)", [prodrid, image, name, amount, price]);
+        });
+        listUsers();
+    }
+
+    function removeUser(prodrid) {
+        db.transaction(function (tx) {
+            tx.executeSql("DELETE FROM productos WHERE prodid=?", [prodrid], listUsers);
+        })
+    }
+
+    function limpiarHTML() {
+        while (contenedorCarrito.firstChild) {
+            contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+        }
+    }
+
+    function add() {
+        document.querySelectorAll(".btn-mas>span:first-child, .btn-mas>span:last-child").forEach(span => {
+            span.addEventListener("click", function (el) {
+                const element = this.parentElement.querySelector(".numero");
+                let id = element.classList[1];
+
+                let num = element.innerText;
+                if (this.innerText == "+") {
+                    num++;
+                } else {
+                    num--;
+                }
+                element.innerText = num;
+
+                update(num, id);
+                limpiarHTML();
+                init();
+
+            });
+        });
+    }
+    function alerta() {
+
+        var opcion = confirm("Desea confirmar la compra");
+        if (opcion == true) {
+            alert("La compra se ha realizado con exito, total: " + total + " Cantidad articulos: " + unidad);
+            eliminarGeneralRegistros();
+            /*Rediccionarlo a la pagina principal*/
+            window.location.href = "../carrito/carrito.html";
+
+        } else {
+
+            alert("La compra se ha cancelado");
+
+        }
+
+    }
+
+
+    function eliminarGeneralRegistros() {
+        db.transaction(function (tx) {
+            tx.executeSql('delete from productos');
+        });
+    }
+
+</script>
+
 
 </html>

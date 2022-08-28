@@ -133,25 +133,24 @@ header .icons a:hover {
 }
 
 /*OCULAR ICONO bars*/
-header .icons #menu-bars {
+header .icons #menu-bars{
     display: none;
 }
 
 /* MEDIA QUERIES*/
-@media (max-width:991px) {
+@media (max-width:991px){
 
-    html {
+    html{
         font-size: 55%;
     }
-
-    header {
-        padding: 1rem 2rem;
+    
+    header{
+        padding:1rem 2rem;
     }
 
-    section {
-        padding: 2rem;
+    section{
+        padding:2rem;
     }
-
     /*
     .products .box-container .box img{
         height: auto;
@@ -160,59 +159,64 @@ header .icons #menu-bars {
 }
 
 
-@media (max-width:768px) {
-
+@media (max-width:768px){
     /*MOSTAR ICONO bars*/
-    header .icons #menu-bars {
+    header .icons #menu-bars{
         display: inline-block;
     }
 
-    header .navbar {
+    header .navbar{
         position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        border-top: .1rem solid rgba(0, 0, 0, .2);
-        border-bottom: .1rem solid rgba(0, 0, 0, .2);
-        padding: 1rem;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        top:100%; left:0; right:0;
+        background:#fff;
+        border-top: .1rem solid rgba(0,0,0,.2);
+        border-bottom: .1rem solid rgba(0,0,0,.2);
+        padding:1rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
     }
 
-    header .navbar a {
+    header .navbar a{
         display: block;
-        padding: 1.5rem;
-        margin: 1rem;
+        padding:1.5rem;
+        margin:1rem;
         font-size: 2rem;
-        background: #eee;
+        background:#eee;
     }
-
     /*FUNCIONALIDAD DE MOSTRAR MENU CON EL ICONO bars*/
-    header .navbar.active {
+    header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    header .navbar_car.active{
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     }
 
-    #search-form #search-box {
-        width: 90%;
-        margin: 0 1rem;
+    #search-form #search-box{
+        width:90%;
+        margin:0 1rem;
     }
 
-    .home .home-slider .slide .content h3 {
+    .home .home-slider .slide .content h3{
         font-size: 5rem;
     }
 
 }
 
 
-@media (max-width:450px) {
+@media (max-width:450px){
 
-    html {
+    html{
         font-size: 50%;
     }
-
-    .order form .inputBox .input {
+    /*
+    .products .box-container .box img{
+        height:auto;
         width: 100%;
     }
+    */
+    .order form .inputBox .input{
+        width:100%;
+    }
+
 }
 
 
