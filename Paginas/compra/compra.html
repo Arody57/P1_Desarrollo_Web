@@ -286,6 +286,9 @@
                 if (this.innerText == "+") {
                     num++;
                 } else {
+                    if (num==1)
+                        num;
+                    else
                     num--;
                 }
                 element.innerText = num;
